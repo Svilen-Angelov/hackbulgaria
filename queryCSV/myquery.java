@@ -6,6 +6,8 @@ import java.util.Scanner;
 public class myquery {
 
 	public static void main(String[] args) {
+ 
+                //Works fine but I need to make the formatting more pretty.
 
 		Scanner sc = new Scanner(System.in);
 		Queries myquery = new Queries(
@@ -17,8 +19,8 @@ public class myquery {
 			System.out.println("Enter a query(Enter \"exit\" to end): ");
 			line = sc.nextLine();
 			String input[] = line.split(" |,"); // Splits with space or
-												// commas(because of SELECT
-												// id,name example)
+							    // commas(because of SELECT
+							    // id,name example)
 
 			// SELECT
 			if (input[0].equals("SELECT")) {
@@ -41,8 +43,8 @@ public class myquery {
 				}
 
 				myquery.selectQuerie(params, limit);// If the method gets sent a
-													// -1 limit it works like
-													// without limit.
+								    // -1 limit it works like
+								    // without limit.
 
 				// SUM
 			} else if (input[0].equals("SUM")) {
