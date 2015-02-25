@@ -32,8 +32,9 @@ public class Queries {
 				if(!params.contains(columns[i]))
 					columns[i] = "SKIP";
 				else
-					System.out.print("| " + columns[i] + " |");
+					System.out.print("|\t" + columns[i] + "\t|");
 			}
+			System.out.println();
 			System.out.println();
 
 			while(true){
@@ -44,7 +45,7 @@ public class Queries {
 				
 				for(int i = 0; i < lineparts.length; i++)
 					if(!columns[i].equals("SKIP"))
-						System.out.print("| " + lineparts[i] + " |");
+						System.out.print("|\t" + lineparts[i] + "\t|");
 				
 				System.out.println();
 				level--;
@@ -129,6 +130,14 @@ public class Queries {
 			br = new BufferedReader(new FileReader(fileLocation));
 			String line = br.readLine();
 			String cvsSplitBy = ",";
+			String[] firstLine = line.split(cvsSplitBy);
+			
+			for(String column : firstLine)
+				System.out.print("|\t" + column + "\t|");
+			
+			System.out.println();
+			System.out.println();
+				
 			
 			while(true){
 				line = br.readLine();
@@ -140,7 +149,7 @@ public class Queries {
 				for(int i =0; i < columns.length; i++){
 					if(columns[i].contains(x)){
 						for(String column : columns)
-							System.out.print("| " + column + " |");
+							System.out.print("|\t" + column + "\t|");
 						System.out.println();
 						break;
 					}		
