@@ -16,19 +16,25 @@ public class ConsoleLogger implements MyLogger {
 		
 		switch(level){
 		case 1 :
-			System.out.println(levelOne + "::" + getTimestamp() + "::" + message);			
+			writeLog(levelOne,message);			
 			break;
 		case 2 :
-			System.out.println(levelTwo + "::" + getTimestamp() + "::" + message);
+			writeLog(levelTwo,message);	
 			break;
 		case 3 :
-			System.out.println(levelThree + "::" + getTimestamp() + "::" + message);
+			writeLog(levelThree,message);	
 			break;
 		default :
 			System.out.println(level + " is an invalid log level.");
 					
 		}
 		
+		
+	}
+	
+	private void writeLog(String loglvl, String message){
+		
+		System.out.println(loglvl + "::" + getTimestamp() + "::" + message);
 		
 	}
 	

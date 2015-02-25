@@ -42,37 +42,30 @@ public class FileLogger implements MyLogger {
 					
 			switch(level){
 			case 1 :
-				try {
-					bw.write(levelOne + "::" + getTimestamp() + "::" + message);
-					bw.newLine();
-					System.out.println("Log successful.");
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
+				writeLog(levelOne,message);
 				break;
 			case 2 :
-				try {
-					bw.write(levelTwo + "::" + getTimestamp() + "::" + message);
-					bw.newLine();
-					System.out.println("Log successful.");
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
+				writeLog(levelTwo,message);
 				break;
 			case 3 :
-				try {
-					bw.write(levelThree + "::" + getTimestamp() + "::" + message);
-					bw.newLine();
-					System.out.println("Log successful.");
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
+				writeLog(levelThree,message);
 				break;
 			default :
-				System.out.println("Log unsuccessful : " + level + " is an invalid log level.");
-						
+				System.out.println("Log unsuccessful : " + level + " is an invalid log level.");						
 			}
 			
+	}
+	
+	private void writeLog(String loglvl, String message){
+		
+		try {
+			bw.write(loglvl + "::" + getTimestamp() + "::" + message);
+			bw.newLine();
+			System.out.println("Log successful.");
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
 	}
 	
 	private String getTimestamp(){
